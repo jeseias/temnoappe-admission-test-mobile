@@ -1,17 +1,17 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   imagesContainer: {
     width: '100%',
-    height: 240,
+    height: 240
   },
   image: {
     width: Dimensions.get('window').width,
     height: 240,
-    resizeMode: 'cover',
+    resizeMode: 'cover'
   },
   contentContainer: {
     padding: 16

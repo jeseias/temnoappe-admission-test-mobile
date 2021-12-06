@@ -1,10 +1,10 @@
-import React, { useState }  from 'react'
-import { View } from 'react-native';
+import React, { useState } from 'react'
+import { View } from 'react-native'
 
-import { useFocusEffect } from '@react-navigation/native';
-import api from '../../services/api';
-import Product from '../../components/product';
-import { styles } from './product-list.style';
+import { useFocusEffect } from '@react-navigation/native'
+import api from '../../services/api'
+import Product from '../../components/product'
+import { styles } from './product-list.style'
 
 interface IProduct {
   id: string
@@ -13,14 +13,14 @@ interface IProduct {
   description: string
 }
 
-export default function() {
-  const [products, setProducts] = useState<IProduct[]>([])  
+export default function ProductList () {
+  const [products, setProducts] = useState<IProduct[]>([])
 
   useFocusEffect(() => {
     api.get('/products').then(response => {
-      setProducts(response.data);
+      setProducts(response.data)
     })
-  });
+  })
 
   return (
     <View style={styles.container}>
@@ -28,4 +28,3 @@ export default function() {
     </View>
   )
 };
-

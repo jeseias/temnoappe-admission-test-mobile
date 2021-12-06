@@ -10,19 +10,20 @@ interface HeaderProps {
   showBack?: boolean
 }
 
-export default function Header({ title, showBack = false }: HeaderProps) {
-  const navigation = useNavigation();
+export default function Header ({ title, showBack = false }: HeaderProps) {
+  const navigation = useNavigation()
   return (
     <View style={styles.container}>
-      { showBack ? (
+      { showBack
+        ? (
         <BorderlessButton onPress={navigation.goBack}>
           <Feather name="arrow-left" size={24} color="#15B6D6" />
         </BorderlessButton>
-      ) : (
+          )
+        : (
         <View />
-      ) }
+          ) }
       <Text style={styles.title}>{ title }</Text>
     </View>
   )
 }
-

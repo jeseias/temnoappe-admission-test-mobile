@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Image, View, ScrollView, Text, StyleSheet, Dimensions } from 'react-native';
-import { useRoute } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react'
+import { Image, View, ScrollView, Text } from 'react-native'
+import { useRoute } from '@react-navigation/native'
 
-import api from '../../services/api';
-import { styles } from './product-details.style';
+import api from '../../services/api'
+import { styles } from './product-details.style'
 
 interface IProductDetailsRoutesParams {
   id: string
@@ -11,13 +11,13 @@ interface IProductDetailsRoutesParams {
 
 interface IProduct {
   id: string
-  name: string 
-  image: string 
+  name: string
+  image: string
   description: string
 }
 
-export default function ProductDetails() {
-  const routes = useRoute();
+export default function ProductDetails () {
+  const routes = useRoute()
   const [product, setProduct] = useState<IProduct>()
 
   const params = routes.params as IProductDetailsRoutesParams
@@ -27,7 +27,7 @@ export default function ProductDetails() {
       setProduct(response.data)
     })
   }, [params.id])
- 
+
   if (!product) {
     return (
       <View style={styles.container}>
@@ -39,17 +39,16 @@ export default function ProductDetails() {
   return (
     <ScrollView style={styles.container}>
       <View>
-        <Image 
-          style={styles.image} 
-          source={{ uri: product.image }} 
-        /> 
-        <View style={styles.contentContainer}> 
+        <Image
+          style={styles.image}
+          source={{ uri: product.image }}
+        />
+        <View style={styles.contentContainer}>
           <Text style={styles.title}>{product.name}</Text>
           <Text style={styles.descriptionTitle}>Descrição</Text>
           <Text style={styles.description}>{product.description}</Text>
         </View>
-      </View>  
+      </View>
     </ScrollView>
   )
 }
-
