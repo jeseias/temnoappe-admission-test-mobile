@@ -13,7 +13,6 @@ interface IProduct {
 
 export default function Product ({ id, name, image }: IProduct) {
   const navigation = useNavigation()
-
   function handleNavigateToProductDetails () {
     navigation.navigate(AppRoutes.ProductDetails, { id })
   }
